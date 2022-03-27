@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  BrowserRouter,
+} from "react-router-dom";
+import Banner from "./components/header/Banner";
+import Header from "./components/header/Header";
+import Progress from "./components/header/Progress";
+import Landing from "./components/Landing";
+import { useReadingProgress } from "./hooks/useReadingProgress";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="h-screen box-border">
+        <Progress />
+        <div className="">
+          <Routes>
+            <Route path="/" element={<Landing />}></Route>
+          </Routes>
+          <Routes>
+            <Route path="/banner" element={<Banner />}></Route>
+          </Routes>
+        </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
