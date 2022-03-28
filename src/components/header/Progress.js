@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { useReadingProgress } from "../../hooks/useReadingProgress";
 
 const Progress = () => {
