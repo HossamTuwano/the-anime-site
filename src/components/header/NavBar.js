@@ -2,46 +2,51 @@ import { ChatTwoTone, Notifications, Search } from "@mui/icons-material";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Menu } from "@mui/material";
 
 const NavBar = () => {
   const [value, setValue] = useState("");
   const [search, setSearch] = useState("");
 
   return (
-    <div className="flex absolute top-0 py-9 px-24 justify-between w-[115rem]  font-sans">
-      <div className="text-def text-2xl">
-        <Link to="/">Anime Site</Link>
-      </div>
+    <div className="md:flex w-full  py-8 px-7 lg:visible">
+      <div className="flex  border w-full py-5  shadow-md align-middle ">
+        <div className="flex justify-between w-full px-9 ">
+          <div className="uppercase ">
+            <Link to="/">
+              {" "}
+              <span className="border px-4 py-3 rounded-md text-black mr-2 ">
+                otaku
+              </span>{" "}
+              senpai
+            </Link>
+          </div>
 
-      <div className=" w-[20rem] flex justify-around ">
-        {" "}
-        <Link to="/trending" className="text-def text-2xl">
-          Trending
-        </Link>
-        <Link to="/trending" className="text-def text-2xl">
-          Wiki
-        </Link>
-      </div>
-
-      <div className="text-[#e1990a] text-xl flex items-center ">
-        <Search className="" />
-
-        <form
-          action=""
-          onSubmit={(e) =>
-            setSearch([search + e.target.value, e.preventDefault()])
-          }
-        >
-          <input
-            type="text"
-            placeholder="Search..."
-            onChange={(e) => setValue(value + e.target.value)}
-            name="search"
-            className="text-[#e1990a] bg-inherit px-3 appearance-none w-[20rem] mr-9 outline-none border-b-1 border-b-[#e1990a]"
-            autoComplete="off"
-            style={{ outline: "none", border: "none" }}
-          />
-        </form>
+          <div className="text-gray-400 lg:text-xl md:flex lg:items-center mr-52">
+            <span className="">
+              <Search className="mr-2" />{" "}
+            </span>
+            <form
+              action=""
+              onSubmit={(e) =>
+                setSearch([search + e.target.value, e.preventDefault()])
+              }
+            >
+              <div className="w-full  text-left ">
+                {" "}
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  onChange={(e) => setValue(value + e.target.value)}
+                  name="search"
+                  className="px-2 w-96"
+                  autoComplete="off"
+                  style={{ outline: "none", border: "none" }}
+                />
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );

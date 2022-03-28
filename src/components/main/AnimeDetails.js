@@ -36,10 +36,6 @@ export class AnimeDetails extends Component {
       let data = this.state.loadedAnime.attributes;
       viewDetails = (
         <div className="border flex ">
-          <div className="fixed w-full border-2 ">
-            <img src={data.coverImage.original} alt="" />
-          </div>
-          {console.log(data.coverImage.original)}
           {/* left side */}
           <div className="border-r  py-20 width-[300rem]  px-32 flex justify-between ">
             {/* img */}
@@ -55,7 +51,9 @@ export class AnimeDetails extends Component {
             {/* details */}
             <div className="">
               {/* title */}
-              <h1 className="mb-3 text-7xl text-">{data.slug}.split("-")</h1>
+              <h1 className="mb-3 text-7xl text-">
+                {`${data.slug}`.split("-").join(" ")}
+              </h1>
               {/* details */}
               <div className="mb-3">
                 <span className="mr-2">{data.ageRating}</span>

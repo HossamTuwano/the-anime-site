@@ -6,7 +6,7 @@ import bg from "./img/landing.jpg";
 function App() {
   return (
     <Router>
-      <div className="h-auto w-full box-border">
+      <div className="md:h-auto md:w-full md:box-border">
         {/* <img
           className="min-h-full min-w-[1024px] w-full height-auto fixed top-0 left-0"
           src={bg}
