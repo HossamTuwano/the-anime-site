@@ -21,4 +21,3 @@ const TrendingAnime = (props) => {
 };
 
 export default TrendingAnime;
-// overflow-hidden shadow-lg border-2 h-4/6 border-blue-900 w-96 absolute flex space-between

@@ -27,9 +27,8 @@ class Trending extends React.Component {
   render() {
     const animes = this.state.trendingAnime.map((anime, i) => {
       return i <= 8 ? (
-        <div className="w-12/12 ml-64 box-border">
+        <div className="w-12/12 ml-64 box-border" key={anime.id}>
           <TrendingAnime
-            key={anime.id}
             title={anime.attributes.slug}
             synopsis={anime.attributes.synopsis}
             posterImage={anime.attributes.posterImage.large}
@@ -42,7 +41,7 @@ class Trending extends React.Component {
     });
     return (
       <div>
-        <div className="h-full w-full  ">
+        <div className="h-full w-full md:flex hidden ">
           <span className="text-xl text-gray-400 font-bold  relative left-[150px]">
             Trending
           </span>
