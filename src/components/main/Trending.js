@@ -26,33 +26,28 @@ class Trending extends React.Component {
 
   render() {
     const animes = this.state.trendingAnime.map((anime, i) => {
-      return i <= 8 ? (
-        <div className="w-12/12 ml-64 box-border" key={anime.id}>
-          <TrendingAnime
-            title={anime.attributes.slug}
-            synopsis={anime.attributes.synopsis}
-            posterImage={anime.attributes.posterImage.large}
-            clicked={() => this.postSelectedHandler(anime.id)}
-          />
+      return i <= 90 ? (
+        <div key={anime.id} className="full mr-3">
+          <TrendingAnime posterImage={anime.attributes.posterImage.large} />{" "}
         </div>
       ) : (
         ""
       );
     });
+
     return (
-      <div>
-        <div className="h-full w-full md:flex hidden ">
-          <span className="text-xl text-gray-400 font-bold  relative left-[150px]">
+      <div className="w-full">
+        <div className="px-3">Trending</div>
+        <section className="flex w-full overflow-auto py-3 px-4">
+          {animes}
+        </section>
+        {/* <div className="h-full w-full flex mt-5 border-2 border-yellow-400 ">
+          <span className="text-xl text-gray-400 font-bold relative left-[150px]">
             Trending
           </span>
-          <section className="flex row overflow-auto w-full rounded-r-full  box-border">
-            {animes}
-          </section>
-        </div>
+        
 
-        <section>
-          <AnimeDetails id={this.state.selectedPostId} />
-        </section>
+       */}
       </div>
     );
   }

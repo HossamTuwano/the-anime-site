@@ -3,7 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+<link rel="preconnect" href="https://fonts.googleapis.com"></link>;
 
+{
+  /* <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>  */
+}
+{
+  /* <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet"></link> */
+}
 ReactDOM.render(
   <React.StrictMode>
     <App />

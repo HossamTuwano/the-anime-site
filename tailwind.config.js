@@ -5,6 +5,9 @@ module.exports = {
       backgroundImage: {
         landing: "url('/src/img/landing.jpg')",
       },
+      fontFamily: {
+        rubik: ['"Rubik"', "sans-serif"],
+      },
       colors: {
         def: "#f3e2ef",
       },
