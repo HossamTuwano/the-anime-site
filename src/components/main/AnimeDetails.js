@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { TrendingUpTwoTone } from "@mui/icons-material";
+import Details from "./Details.js";
 
 export class AnimeDetails extends Component {
   state = {
     loadedAnime: null,
   };
-  componentDidUpdate() {
+  componentDidMount() {
+    console.log("full anime id " + this.props.id);
     if (this.props.id) {
       if (
         !this.state.loadedAnime ||
@@ -24,9 +26,14 @@ export class AnimeDetails extends Component {
     }
   }
   render() {
-    let viewDetails = <div></div>;
+    <div>
+      <Details id="2" loadedAnime={this.state.loadedAnime} />
+    </div>;
 
-    // console.log(this.props.id);
+    let viewDetails = <div>your shit here</div>;
+
+    console.log("animedits id " + this.props.id);
+    console.log("loaded anime " + this.state.loadedAnime);
 
     if (this.props.id) {
       viewDetails = <div>Loading...!</div>;

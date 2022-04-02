@@ -3,15 +3,15 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
+import axios from "axios";
 
-const NavBar = () => {
+const NavBar = (props) => {
   const [value, setValue] = useState("");
-  const [search, setSearch] = useState("");
 
   return (
-    <div className="md:flex">
+    <div className="mb-4 md:flex md:justify-between md:px-3 md:border md:shadow-md md:items-center">
       {/* responsie */}
-      <div className="md:hidden flex border-box justify-between items-center py-5 px-3">
+      <div className="flex border-box justify-between items-center py-5 px-3">
         <div className="uppercase">
           <Link to="/">
             {" "}
@@ -22,52 +22,28 @@ const NavBar = () => {
           </Link>
         </div>
 
-        <div>
+        <div className="md:hidden">
           <MenuIcon />
         </div>
       </div>
       {/* desktop */}
-      <div className="md:flex w-full hidden mb-5">
-        <div className="flex border w-full py-5 shadow-md  items-center px-3 ">
-          <div className="flex justify-between w-full  ">
-            {/* logo */}
-            <div className="uppercase ">
-              <Link to="/">
-                {" "}
-                <span className="border px-4 py-3 rounded-md text-black mr-2 ">
-                  otaku
-                </span>{" "}
-                senpai
-              </Link>
-            </div>
-
-            {/* search */}
-
-            <div className="text-gray-400 flex item-center ">
-              <span className="">
-                <Search className="mr-2" />{" "}
-              </span>
-              <form
-                action=""
-                onSubmit={(e) =>
-                  setSearch([search + e.target.value, e.preventDefault()])
-                }
-              >
-                <div className="active:border-b-2 hover:border-b-2 w-96 ">
-                  {" "}
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    onChange={(e) => setValue(value + e.target.value)}
-                    name="search"
-                    className="px-2 text-lg"
-                    autoComplete="off"
-                    style={{ outline: "none", border: "none" }}
-                  />
-                </div>
-              </form>
-            </div>
-          </div>
+      <div className="md:w-[300px] w-full  mt-2 text-center flex justify-center">
+        <div className="rounded-md h-9 flex items-center px-2 border-2 w-[300px] md:border-none ">
+          <span className="" onClick={props.handleSearch}>
+            <Link to="search">
+              <Search className="text-[#707070]" />{" "}
+            </Link>
+          </span>
+          <form action="" onSubmit={props.handleSearch} className=" w-[250px]">
+            <input
+              type="text"
+              className="w-[250px] h-full px-2 md:focus:border-b-2 outline-none md:hover:border-b-2   text-[#707070]"
+              placeholder="Search"
+              autoComplete="off"
+              value={props.search}
+              onChange={(e) => props.setSearch(e.target.value)}
+            />
+          </form>
         </div>
       </div>
     </div>

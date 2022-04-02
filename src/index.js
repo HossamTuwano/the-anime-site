@@ -3,16 +3,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-<link rel="preconnect" href="https://fonts.googleapis.com"></link>;
+import { BrowserRouter } from "react-router-dom";
+import Progress from "./components/header/Progress";
 
-{
-  /* <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>  */
-}
-{
-  /* <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet"></link> */
-}
 ReactDOM.render(
   <React.StrictMode>
+    <Progress />
     <App />
   </React.StrictMode>,
   document.getElementById("root")
