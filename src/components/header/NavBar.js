@@ -1,12 +1,17 @@
 import { ChatTwoTone, Notifications, Search } from "@mui/icons-material";
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import axios from "axios";
 
 const NavBar = (props) => {
+  const navigate = useNavigate();
   const [value, setValue] = useState("");
+
+  const onSubmition = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <div className="mb-4 md:flex md:justify-between md:px-3 md:border md:shadow-md md:items-center">
@@ -30,11 +35,15 @@ const NavBar = (props) => {
       <div className="md:w-[300px] w-full  mt-2 text-center flex justify-center">
         <div className="rounded-md h-9 flex items-center px-2 border-2 w-[300px] md:border-none ">
           <span className="" onClick={props.handleSearch}>
-            <Link to="search">
+            <Link to={`search`}>
               <Search className="text-[#707070]" />{" "}
             </Link>
           </span>
-          <form action="" onSubmit={props.handleSearch} className=" w-[250px]">
+          <form
+            className=" w-[250px]"
+            // onSubmit={props.handleSearch}
+            // onSubmit={onSubmition}
+          >
             <input
               type="text"
               className="w-[250px] h-full px-2 md:focus:border-b-2 outline-none md:hover:border-b-2   text-[#707070]"
@@ -43,6 +52,9 @@ const NavBar = (props) => {
               value={props.search}
               onChange={(e) => props.setSearch(e.target.value)}
             />
+            <Link to="/search">
+              <button onSubmit={props.handleSearch} type="submit"></button>
+            </Link>
           </form>
         </div>
       </div>

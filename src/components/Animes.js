@@ -1,18 +1,20 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import landingImg from "../img/landing.jpg";
-import NavBar from "./header/NavBar";
-import AnimeDetails from "./main/AnimeDetails";
-import { Routes, Route } from "react-router-dom";
-import Trending from "./main/Trending";
-const Landing = (props) => {
+import "../css/Trending.css";
+
+const Animes = (props) => {
+  const attributes = props.trendingAnime.attributes;
+
   return (
-    <div className="h-full">
-      <div>
-        <Trending />
+    <article className="flex overflow-auto" onClick={props.clicked}>
+      <div className="w-44 z-0 ">
+        <img
+          className="w-full bg-cover bg-no-repeat bg-center rounded-md h-90"
+          src={attributes.posterImage.large}
+          alt={`${attributes.posterImage.large}`.toString()}
+        />
       </div>
-    </div>
+    </article>
   );
 };
 
-export default Landing;
+export default Animes;
