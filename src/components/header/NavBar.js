@@ -14,7 +14,7 @@ const NavBar = (props) => {
   };
 
   return (
-    <div className="mb-4 md:flex md:justify-between md:px-3 md:border md:shadow-md md:items-center">
+    <div className="mb-4 md:flex md:justify-between md:px-3 md:border md:shadow-md md:items-center z-50">
       {/* responsie */}
       <div className="flex border-box justify-between items-center py-5 px-3">
         <div className="uppercase">
@@ -46,7 +46,7 @@ const NavBar = (props) => {
           >
             <input
               type="text"
-              className="w-[250px] h-full px-2 md:focus:border-b-2 outline-none md:hover:border-b-2   text-[#707070]"
+              className="w-[250px] h-full px-2 md:focus:border-b-2 outline-none md:hover:border-b-2   text-[#707070] bg-inherit"
               placeholder="Search"
               autoComplete="off"
               value={props.search}
