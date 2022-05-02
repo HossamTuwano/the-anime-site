@@ -22,16 +22,36 @@ function AnimeDetails(props) {
   }
 
   if (animeDetails.length !== 0) {
+    let startDate = animeDetails.attributes.startDate;
+    let startDateArr = startDate.split("-");
+    let startDateString = new Date(
+      `${startDateArr[1]}, ${startDateArr[2]}, ${startDateArr[0]}`
+    )
+      .toDateString()
+      .split(" ")
+      .slice(1)
+      .join(" ");
+
+    let endDate = animeDetails.attributes.endDate;
+    let endDateArr = endDate === null ? "" : endDate.split("-");
+    let endDateString = new Date(
+      `${endDateArr[1]}, ${endDateArr[2]}, ${endDateArr[0]}`
+    )
+      .toDateString()
+      .split(" ")
+      .slice(1)
+      .join(" ");
+
     const attributes = animeDetails.attributes;
     const bgImg = animeDetails.attributes.posterImage.large;
 
     viewDetails = (
-      <div className="w-full absolute top-0  h-screen">
-        <div className="w-full h-[500px] absolute opacity-80">
+      <div className="w-full absolute top-0">
+        <div className="w-full h-full absolute opacity-80">
           <img
             src={bgImg}
             alt={`${bgImg}`.toString()}
-            className="blur-xl h-full w-full brightness-50"
+            className="blur-xl h-full w-full brightness-50  bg-repeat-y"
           />
         </div>
 
@@ -69,6 +89,31 @@ function AnimeDetails(props) {
             ) : (
               ""
             )}
+          </div>
+        </div>
+
+        <div className="mt-4 py-4 px-2 border-t">
+          {/* <div className="flex justify-center ">
+            <div className="border w-[350px] h-16">
+              <img
+                src={`https://img.youtube.com/vi/${attributes.youtubeVideoId}/mqdefault.jpg`}
+                alt=""
+                className="w-full h-full bg-top bg-no-repeat"
+              />
+            </div>
+          </div> */}
+          <div className="">
+            <div className="">Synopis</div>
+            {attributes.synopsis}
+          </div>
+
+          <div className="mt-2">
+            <div>
+              Aired:&nbsp;{startDateString}&nbsp;to&nbsp;
+              {endDateString}
+            </div>
+            <div>Episodes:&nbsp;{attributes.episodeCount}</div>
+            <div>Status:&nbsp;{attributes.status}</div>
           </div>
         </div>
       </div>
