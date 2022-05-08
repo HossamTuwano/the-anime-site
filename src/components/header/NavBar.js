@@ -16,7 +16,7 @@ const NavBar = (props) => {
   const [showSearch, setShowSearch] = useState(false);
 
   const handelSearch = () => {
-    setShowSearch(true);
+    setShowSearch(!showSearch);
   };
 
   return (
